@@ -31,7 +31,7 @@ export default class extends React.PureComponent {
 
     componentDidMount () {
         const { toggleWindow } = this.props
-        this.window = window.open("", "", this.getFeatures())
+        this.window = window.open("", "childWindow", this.getFeatures())
         this.window.document.body.appendChild(this.container)
         this.window.document.title = "Child Window"
         copyStyles(window.document, this.window.document)

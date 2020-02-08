@@ -1,6 +1,7 @@
 import React from "react"
 import "./App.css"
 import WindowPortal from "./WindowPortal"
+import logo from "./logo.svg"
 
 export default class App extends React.Component {
   state = { name: "John Doe", isOpened: false }
@@ -31,6 +32,9 @@ export default class App extends React.Component {
             size={{ width: 400, height: 400}}
             position={{ left: 300, top: 100 }}>
           <header className="App-header">
+            <img src={`${window.location.origin}${logo}`}
+                 alt="logo"
+                 className="App-logo"/>
             <p>
               Name is: <strong>{name}</strong>
             </p>
