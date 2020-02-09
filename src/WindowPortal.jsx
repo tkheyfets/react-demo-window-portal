@@ -6,8 +6,7 @@ import { toPairs } from "lodash"
 
 export default class extends React.PureComponent {
     static propTypes = {
-        size: PropTypes.object,
-        position: PropTypes.object,
+        features: PropTypes.object,
         toggleWindow: PropTypes.func
     }
 
@@ -23,8 +22,8 @@ export default class extends React.PureComponent {
     }
 
     getFeatures () {
-        const { size, position } = this.props
-        return toPairs({ ...size, ...position })
+        const { features } = this.props
+        return toPairs(features)
             .map(x => x.join("="))
             .join(",")
     }
@@ -38,7 +37,5 @@ export default class extends React.PureComponent {
         this.window.addEventListener("beforeunload", () => toggleWindow(false))
     }
 
-    componentWillUnmount () {
-        this.window.close()
-    }
+    componentWillUnmount () { this.window.close() }
 }
