@@ -35,6 +35,7 @@ export default class App extends React.Component {
           </button>
         </header>
         {isOpened ? <WindowPortal
+            id="childWindow"
             toggleWindow={this.toggleChildWindow.bind(this)}
             features={{
               width: 400,

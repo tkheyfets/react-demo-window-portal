@@ -7,7 +7,8 @@ import { toPairs } from "lodash"
 export default class extends React.PureComponent {
     static propTypes = {
         features: PropTypes.object,
-        toggleWindow: PropTypes.func
+        toggleWindow: PropTypes.func,
+        id: PropTypes.string.isRequired
     }
 
     constructor (props) {
@@ -29,8 +30,8 @@ export default class extends React.PureComponent {
     }
 
     componentDidMount () {
-        const { toggleWindow } = this.props
-        this.window = window.open("", "childWindow", this.getFeatures())
+        const { toggleWindow, id } = this.props
+        this.window = window.open("", id, this.getFeatures())
         this.window.document.body.appendChild(this.container)
         this.window.document.title = "Child Window"
         copyStyles(window.document, this.window.document)
